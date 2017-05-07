@@ -37,7 +37,7 @@ void philosopher() {
 	omp_set_lock(&forks[left_fork]);
 	omp_set_lock(&forks[right_fork]);
 
-	printf("Philosopher with id %d is eating today.\n", id);	
+	printf("Philosopher with id %d is eating today.\n", id);
 	printf("In his left hand is fork %d and in his right hand is fork %d.\n", left_fork, right_fork);
 
 	sleep((rand() % 8) + 2); //Eating is between 2 and 9 seconds
@@ -75,3 +75,4 @@ main() {
 		omp_destroy_lock(&forks[i]);
 	}
 	return 0;
+}
