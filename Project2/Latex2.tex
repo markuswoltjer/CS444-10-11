@@ -84,6 +84,9 @@
 		\hline petroffr & added sstf scheduler file & May 5th \\ 	
 		\hline markuswoltjer & added Concurrency2.c & May 5th\\
 		\hline markuswoltjer & added Philosophers.c & May 5th\\	
+		\hline markuswoltjer & updated Philosophers.c & May 7th\\	
+		\hline markuswoltjer & added all fork status to Philosophers.c & May 8th\\
+		\hline terrancelee81 & updating  latex docs & May 8th\\	
 	\end{tabular}
 \end{center}
 \section{Work Log}
@@ -93,17 +96,26 @@
 	\item May 5th - Makefile got updated
 	\item May 5th -  Concurrency added
 	\item May 5th - Philosphers added
+	\item May 5th - update Makefile to Compile report
+	\item May 7th - updated Philosphers 
+	\item May 8th - added all fork status to Philosphers
+	\item May 8th - updated latex docs
+	
+	
 	
 	
 \end{itemize}
-\section{Concurrency Solution}
+\section{}
 \subsection{What do you think the main point of this assignment is?}
 To make us understand the scheduler and how to better use schedulers.  With this assignment we are learning how to scheduler our task and make the operating system more efficient 
 \subsection{How did you personally approach the problem? Design decisions, algorithm, etc.}
 When approaching this problem we took a look how to change the sstf\_add\_request.  While looking at this function this think about other items like whether we would need to change to include what would need to work.  For testing Raja was looking at how to test with python.
 \subsection{How did you ensure your solution was correct? Testing details, for instance.}
+We print out the sector numbers and we plot them to make sure they are merged correctly.  
+We are just using printk statements, we also used some python to do the ploting. 
 
 \subsection{What did you learn?}
+How to sort sectors and how to merge correctly, while how to debug the kernel. We also learned how disc I/O works and how to write our own elevator algorithm. Also we learned a little more about when a teammate is unavailable due to other issues how to come together as a team and still get the assignment done. 
 
 
 
