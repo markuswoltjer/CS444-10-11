@@ -61,7 +61,7 @@
 	\author{CS444 - Spring 2017 \\ Terrance Lee, Raja Petroff, Markus Woltjer}
 	\maketitle
 	\begin{abstract}
-		The following document contains information about project 2 which includes the design plan of SSTF algorithm, version control, work done and dining philosophers problem explanation.  
+		The following document contains information about Project 2 which includes the design plan of the SSTF algorithm, version control, work done and dining philosophers problem explanation.  
 	\end{abstract}
 	
 	\thispagestyle{empty} % gets rid of the "0" page number.
@@ -85,7 +85,7 @@
 		\hline markuswoltjer & added Concurrency2.c & May 5th\\
 		\hline markuswoltjer & added Philosophers.c & May 5th\\	
 		\hline markuswoltjer & updated Philosophers.c & May 7th\\	
-		\hline markuswoltjer & added all fork status to Philosophers.c & May 8th\\
+		\hline markuswoltjer & added all fork and philosopher statuses to Philosophers.c & May 8th\\
 		\hline terrancelee81 & updating  latex docs & May 8th\\	
 	\end{tabular}
 \end{center}
@@ -98,8 +98,9 @@
 	\item May 5th - Philosphers added
 	\item May 5th - update Makefile to Compile report
 	\item May 7th - updated Philosphers 
-	\item May 8th - added all fork status to Philosphers
+	\item May 8th - added all fork and philosopher statuses to Philosphers
 	\item May 8th - updated latex docs
+	
 	
 	
 	
@@ -107,15 +108,14 @@
 \end{itemize}
 \section{}
 \subsection{What do you think the main point of this assignment is?}
-To make us understand the scheduler and how to better use schedulers.  With this assignment we are learning how to scheduler our task and make the operating system more efficient 
+This assignment exists to make us understand the scheduler and how to better use schedulers. In this assignment we are learning how to schedule input and output requests to maximize efficiency of the physical components for spinning drives.
 \subsection{How did you personally approach the problem? Design decisions, algorithm, etc.}
-When approaching this problem we took a look how to change the sstf\_add\_request.  While looking at this function this think about other items like whether we would need to change to include what would need to work.  For testing Raja was looking at how to test with python.
+When approaching this problem we took a look how to change sstf\_add\_request to implement the CLOOK elevator algorithm. This function defines the differences between noop and CLOOK schedulers. After understanding the effects of this function, we determined what other functions and configurations would also need to be changed to integrate it into the kernel. For testing, Raja was looking at how to test with Python: listing directories, using the glob library, and a random shuffle to randomize disk access requests, and determine whether the algorithm sorts them correctly for better efficiency.
 \subsection{How did you ensure your solution was correct? Testing details, for instance.}
 We print out the sector numbers and we plot them to make sure they are merged correctly.  
-We are just using printk statements, we also used some python to do the ploting. 
-
+We are just using printk statements, we also used some python to do the plotting. 
 \subsection{What did you learn?}
-How to sort sectors and how to merge correctly, while how to debug the kernel. We also learned how disc I/O works and how to write our own elevator algorithm. Also we learned a little more about when a teammate is unavailable due to other issues how to come together as a team and still get the assignment done. 
+How to sort sectors and how to merge correctly and also how to debug the kernel. We also learned how disk I/O works and how to write our own elevator algorithm. Also we learned a little more about when a teammate is unavailable due to other issues how to come together as a team and still get the assignment done.
 
 
 
