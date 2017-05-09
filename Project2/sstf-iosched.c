@@ -9,8 +9,10 @@
 #include <linux/init.h>
 
 struct sstf_data {
-	/* TODO: change sstf_data */
+	
 	struct list_head queue;
+	struct list_head* enqueue;
+	int queue_count;
 };
 
 static void sstf_merged_requests(struct request_queue *q, struct request *rq,
@@ -33,12 +35,72 @@ static int sstf_dispatch(struct request_queue *q, int force)
 	return 0;
 }
 
-static void sstf_add_request(struct request_queue *q, struct request *rq)
+//The add request function has been modified to add requests accordinng to the CLOOK algorithm
+static void sstf_add_request(struct request_queue *q, struct request *req)
 {
-	/* TODO: change sstf_add_request */
-	struct sstf_data *nd = q->elevator->elevator_data;
+	//Initialize a data struct for a CLOOK-relevant data struct using the elevator field of the request queue
+	struct sstf_data *sd = q->elevator->elevator_data;
+	
+	//flag for successful request addition
+	int added = 0;
+	
+//	printk("I/O request to add: %lu\n", (unsigned long)blk_rq_pos(req));
+	
+	if(list_empty(&sd->queue)){//check whether list is empty
+//		printk ("List was empty, now will be served one request.\n");
+		list_add(&req->queuelist, &sd->queue);//add the list to the queue
+		sd->enqueue = sd->queue.next;//single list element, so no concern as to where
+		sd->queue_count++;//increment queue element tracker
+		return;//that's all needed for empty list
+	}
+	
+	//Otherwise, list already has elements
+	struct list_head* link;
+	list_for_each(link, &sd->queue) {//iterate through the linked list, 
+		struct request* this_req = list_entry(link, struct request, queuelist);
+		struct request* next_req = list_entry(link->next, struct request, queuelist);
+		
+		sector_t this_sector = blk_rq_pos(this_req);
+		sector_t next_sector = blk_rq_pos(next_req);
+		sector_t req_sector = blk_rq_pos(req);
+	
+//		printk ("Sector of the current link: %lu. Sector of the next link: %lu\n" , (unsigned long)blk_rq_pos(this_req), (unsigned long)blk_rq_pos(next_req));
+	
+		//This is for one item in the queue 
+		if(sd->queue_count == 1) {
+			list_add(&req->queuelist, link);//we can just use a simple add again because there is no order in a resulting list of two elements
+			sd->queue_count++;
+			added = 1;//set flag
+			break;//leave the for loop
+		}   
+	
+		//This is the consequential check for general additions. If the new sector is between the current and next, use the position member 
+		if ((this_sector <= req_sector) && (next_sector >= req_sector)) {
+			list_add(&req->queuelist, link);
+			sd->queue_count++;
+			added = 1;//set flag
+			break;//leave the for loop
+		}
+	}
+	
+	if(added != 1) {//if non suitable position was found between sectors on the list, it must
+		// Our new request must be bigger than all current, add it to the end
+		list_add_tail(&req->queuelist, &sd->queue);
+		sd->queue_count++;
+//		printk("High sector request added at tail of queue (beyond the highest sector).\n");
+	}
+	
+//	printk("Added I/O request: %llu\n", (unsigned long long)blk_rq_pos(req));
+//	printk("Queue size after addition: %d\n", sd->queue_count);
+//	printk("The resulting queue:");
 
-	list_add_tail(&rq->queuelist, &nd->queue);
+	//Print sectors in order
+/*	printk("START QUEUE:\n");
+	struct request *cur_req = NULL;
+	list_for_each_entry(cur_req, &sd->queue, queuelist)
+		printk("%llu\n", (unsigned long long)blk_rq_pos(cur_req));
+	printk("END QUEUE.\n\n");
+*/
 }
 
 static struct request *
@@ -63,7 +125,6 @@ sstf_latter_request(struct request_queue *q, struct request *rq)
 
 static int sstf_init_queue(struct request_queue *q, struct elevator_type *e)
 {
-	/* TODO: change sstf_init_queue */
 	struct sstf_data *nd;
 	struct elevator_queue *eq;
 
@@ -122,6 +183,6 @@ module_init(sstf_init);
 module_exit(sstf_exit);
 
 
-MODULE_AUTHOR("Jens Axboe");
+MODULE_AUTHOR("10-11");
 MODULE_LICENSE("GPL");
-MODULE_DESCRIPTION("No-op IO scheduler");
+MODULE_DESCRIPTION("SSTF IO scheduler");
