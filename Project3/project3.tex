@@ -1,0 +1,123 @@
+\documentclass[draftclsnofoot,onecolumn,10pt,compsoc]{IEEEtran}
+\usepackage[utf8]{inputenc}
+\usepackage{color}
+\usepackage{url}
+\usepackage{hyperref}
+
+\usepackage{graphicx} %package to manage images
+\graphicspath{ {images/} }
+
+\usepackage{enumitem}
+
+\usepackage[letterpaper, margin=.75in]{geometry}
+
+\newcommand{\toc}{\tableofcontents}
+
+\usepackage{hyperref}
+\usepackage{listings}
+
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+
+\renewcommand{\lstlistingname}{Code Example} % a listing caption title.
+%\renewcommand{\lstlistlistingname}{List of \lstlistingname s} % list of lists -> list of Thread Program
+\lstset{
+    frame=single,
+    language=C,
+    columns=flexible,
+    numbers=left,
+    numbersep=5pt,
+    numberstyle=\tiny\color{gray},
+    keywordstyle=\color{blue},
+    commentstyle=\color{dkgreen},
+    stringstyle=\color{mauve},
+    breaklines=true,
+    breakatwhitespace=true,
+    tabsize=4,
+    captionpos=b
+}
+
+\def\name{Terrance Lee }
+
+%% The following metadata will show up in the PDF properties
+\hypersetup{
+  colorlinks = false,
+  urlcolor = black,
+  pdfauthor = {\name},
+  pdfkeywords = {},
+  pdftitle = {},
+  pdfsubject = {},
+  pdfpagemode = UseNone
+}
+
+\parindent = 0.0 in
+\parskip = 0.1 in
+
+\begin{document}
+
+\begin{titlepage}
+	\title{Project 2}
+	\author{CS444 - Spring 2017 \\ Terrance Lee, Raja Petroff, Markus Woltjer}
+	\maketitle
+	\begin{abstract}
+		The following document contains information about Project 2 which includes the design plan of the SSTF algorithm, version control, work done and dining philosophers problem explanation.  
+	\end{abstract}
+	
+	\thispagestyle{empty} % gets rid of the "0" page number.
+	
+\end{titlepage}
+%\newpage
+
+\tableofcontents
+
+\newpage
+
+\section{The design we planned to use to implement the SSTF algorithms.}
+\section{Version Control Log}
+\begin{center}
+	\begin{tabular}{| p{0.3\linewidth} | p{0.3\linewidth} | p{0.3\linewidth} |}
+		\hline User & Commit Message & Date\\
+		\hline terrancelee81 & Added Makefile & May 4th\\
+		\hline terrancelee81 & added latex docs& May 4th\\
+		\hline petroffr & updated Makefile report & May 5th \\	
+		\hline petroffr & added sstf scheduler file & May 5th \\ 	
+		\hline markuswoltjer & added Concurrency2.c & May 5th\\
+		\hline markuswoltjer & added Philosophers.c & May 5th\\	
+		\hline markuswoltjer & updated Philosophers.c & May 7th\\	
+		\hline markuswoltjer & added all fork and philosopher statuses to Philosophers.c & May 8th\\
+		\hline terrancelee81 & updating  latex docs & May 8th\\	
+	\end{tabular}
+\end{center}
+\section{Work Log}
+\begin{itemize}
+	\item May 2th - began working on the kernel part of the assignment
+	\item May 4th - Configured SSTF
+	\item May 5th - Makefile got updated
+	\item May 5th -  Concurrency added
+	\item May 5th - Philosphers added
+	\item May 5th - update Makefile to Compile report
+	\item May 7th - updated Philosphers 
+	\item May 8th - added all fork and philosopher statuses to Philosphers
+	\item May 8th - updated latex docs
+	
+	
+	
+	
+	
+\end{itemize}
+\section{}
+\subsection{What do you think the main point of this assignment is?}
+This assignment exists to make us understand the scheduler and how to better use schedulers. In this assignment we are learning how to schedule input and output requests to maximize efficiency of the physical components for spinning drives.
+\subsection{How did you personally approach the problem? Design decisions, algorithm, etc.}
+When approaching this problem we took a look how to change sstf\_add\_request to implement the CLOOK elevator algorithm. This function defines the differences between noop and CLOOK schedulers. After understanding the effects of this function, we determined what other functions and configurations would also need to be changed to integrate it into the kernel. For testing, Raja was looking at how to test with Python: listing directories, using the glob library, and a random shuffle to randomize disk access requests, and determine whether the algorithm sorts them correctly for better efficiency.
+\subsection{How did you ensure your solution was correct? Testing details, for instance.}
+We print out the sector numbers and we plot them to make sure they are merged correctly.  
+We are just using printk statements, we also used some python to do the plotting. 
+\subsection{What did you learn?}
+How to sort sectors and how to merge correctly and also how to debug the kernel. We also learned how disk I/O works and how to write our own elevator algorithm. Also we learned a little more about when a teammate is unavailable due to other issues how to come together as a team and still get the assignment done.
+
+
+
+
+\end{document}
