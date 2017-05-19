@@ -1,7 +1,7 @@
 CXX = gcc
-SRCS = concurrency3.c lib.c
-HEADERS = lib.h
-OBJS = concurrency3.o lib.o
+SRCS = concurrency3.c linkedlist.c
+HEADERS = linkedlist.h
+OBJS = concurrency3.o linkedlist.o
  
 concurrency3: ${OBJS} ${HEADERS}
 		    ${CXX} ${OBJS} -o concurrency3 -lpthread
