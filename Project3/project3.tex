@@ -84,6 +84,7 @@
 		\hline terrancelee81 & updated latex docx & May 18th\\
 		\hline terrancelee81 & added Crypto.c & May 21st\\
 		\hline terrancelee81 & updated latex docx & May 22nd\\
+		\hline markuswoltjer & updated latex document & May 22nd\\
 	\end{tabular}
 \end{center}
 \section{Work Log}
@@ -93,6 +94,9 @@
 	\item May 17th - SBD file got updated
 	\item May 18th - updated latex docs
 	\item May 21st - Parts of Crypto
+	\item May 22nd - Integrated Crypto
+	\item May 22nd - Tested Integration
+	\item May 22nd - Finalized Report
 	
 	
 	
@@ -101,13 +105,13 @@
 \end{itemize}
 \section{}
 \subsection{What do you think the main point of this assignment is?}
-To make a simple block device from bad examples and encrypt it.  
+To make a simple block device from incomplete pieces and lacking documentation, and encrypt it.  
 \subsection{How did you personally approach the problem? Design decisions, algorithm, etc.}
-Use what we have to as a starting tool and start searching for better examples that may help. Also use the more complex examples as well but to aim us to the more simple way that this assignment is really for.  When it came to the encryption and decryption part we used the basics from other classes that we had taken before.  We did not want to go to far into depth in that part.  We were not trying to stop the top hackers in the world.  We are just trying to understand how to encrypt our ram disk.    
+The approach was to find the best sbd.c file we could online and bulid on it and build encryption into it based on block driver examples, encryption examples, and researching the encryption libraries. Although we did use some more complex example, we tried to start with the simple ones to build the conceptual understanding of the block driver and cryptography and better understand code from the more complex examples as we integrated it.  When it came to the encryption and decryption part, we used the basics from other classes that we had taken before to guide our application of examples. We did not want to go to far into depth in that part and implement it more complex than necessary.   
 \subsection{How did you ensure your solution was correct? Testing details, for instance.}
-We used print statements and phymem for testing and correctness.  This allowed us to makesure we were getting what we wanted from the encryption and decryption part.  This was properly the most important testing because we had to come up with most of it ourselves from what we had learned from other classes. 
+We used print statements for testing and correctness.  This allowed us to make sure we were getting what we wanted from the encryption and decryption part. This was properly the most important testing because we had to come up with most of it ourselves from what we had learned from other classes. The plan is to encrypt and decrypt simple text and look for the ASCII of the text in both ciphertext and decrypted plaintext. Then we will encrypt and change keys for the decryption, and unless we are extraordinarily unlucky, our short segment of ASCII values won't appear again.
 \subsection{What did you learn?}
-We learned how to deal with bad examples and integrate them into better examples so that our system will work properly.  We also learned to use better work as a team when our back was against the wall.  For example when it came down to the encryption part, Terrance thought he had it down pretty well which he did.  When Markus suggested something about it he realized that he was missing something about it and that help energize our team to finish this project and get it done right with the amount of time we had left. Lastly Installing and configuring the block driver encryption was a challenge, especially with a key as a parameter to the module.
+We learned how to deal with bad examples and integrate them into better examples so that our system will work properly.  We also learned to use better work as a team when our back was against the wall. For example when it came down to the encryption part, Terrance thought he had it down pretty well, which he did. When Markus suggested something about it he realized that he was missing something about it and that help energize our team to finish this project and get it done right with the amount of time we had left. It was a good refresher on AES encryption and introduction to researching poorly documented and outdated code. Lastly, installing and configuring the block driver encryption was a challenge, especially with a key as a parameter to the module. 
 
 
 
