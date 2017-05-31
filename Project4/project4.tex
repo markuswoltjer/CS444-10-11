@@ -1,0 +1,120 @@
+\documentclass[draftclsnofoot,onecolumn,10pt,compsoc]{IEEEtran}
+\usepackage[utf8]{inputenc}
+\usepackage{color}
+\usepackage{url}
+\usepackage{hyperref}
+
+\usepackage{graphicx} %package to manage images
+\graphicspath{ {images/} }
+
+\usepackage{enumitem}
+
+\usepackage[letterpaper, margin=.75in]{geometry}
+
+\newcommand{\toc}{\tableofcontents}
+
+\usepackage{hyperref}
+\usepackage{listings}
+
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+
+\renewcommand{\lstlistingname}{Code Example} % a listing caption title.
+%\renewcommand{\lstlistlistingname}{List of \lstlistingname s} % list of lists -> list of Thread Program
+\lstset{
+    frame=single,
+    language=C,
+    columns=flexible,
+    numbers=left,
+    numbersep=5pt,
+    numberstyle=\tiny\color{gray},
+    keywordstyle=\color{blue},
+    commentstyle=\color{dkgreen},
+    stringstyle=\color{mauve},
+    breaklines=true,
+    breakatwhitespace=true,
+    tabsize=4,
+    captionpos=b
+}
+
+\def\name{Terrance Lee }
+
+%% The following metadata will show up in the PDF properties
+\hypersetup{
+  colorlinks = false,
+  urlcolor = black,
+  pdfauthor = {\name},
+  pdfkeywords = {},
+  pdftitle = {},
+  pdfsubject = {},
+  pdfpagemode = UseNone
+}
+
+\parindent = 0.0 in
+\parskip = 0.1 in
+
+\begin{document}
+
+\begin{titlepage}
+	\title{Project 3}
+	\author{CS444 - Spring 2017 \\ Terrance Lee, Raja Petroff, Markus Woltjer}
+	\maketitle
+	\begin{abstract}
+		The following document contains information about Project 3 which includes the design plan of the Kernel Crypto API version control, work done.  
+	\end{abstract}
+	
+	\thispagestyle{empty} % gets rid of the "0" page number.
+	
+\end{titlepage}
+%\newpage
+
+\tableofcontents
+
+\newpage
+
+\section{The design we planned to use to implement the Simple Block Device.}
+\section{Version Control Log}
+\begin{center}
+	\begin{tabular}{| p{0.3\linewidth} | p{0.3\linewidth} | p{0.3\linewidth} |}
+		\hline User & Commit Message & Date\\
+		\hline terrancelee81 & Added Makefile & May 16th\\
+		\hline terrancelee81 & added latex docs& May 16th\\
+		\hline petroffr & added sbd.c & May 17th \\ 	
+		\hline terrancelee81 & updated latex docx & May 18th\\
+		\hline terrancelee81 & added Crypto.c & May 21st\\
+		\hline terrancelee81 & updated latex docx & May 22nd\\
+		\hline markuswoltjer & updated latex document & May 22nd\\
+	\end{tabular}
+\end{center}
+\section{Work Log}
+\begin{itemize}
+	\item May 16th - began working on the kernel part of the assignment
+	\item May 16th - Makefile got updated
+	\item May 17th - SBD file got updated
+	\item May 18th - updated latex docs
+	\item May 21st - Parts of Crypto
+	\item May 22nd - Integrated Crypto
+	\item May 22nd - Tested Integration
+	\item May 22nd - Finalized Report
+	
+	
+	
+	
+	
+\end{itemize}
+\section{}
+\subsection{What do you think the main point of this assignment is?}
+To make a simple block device from incomplete pieces and lacking documentation, and encrypt it.  
+\subsection{How did you personally approach the problem? Design decisions, algorithm, etc.}
+The approach was to find the best sbd.c file we could online and bulid on it and build encryption into it based on block driver examples, encryption examples, and researching the encryption libraries. Although we did use some more complex example, we tried to start with the simple ones to build the conceptual understanding of the block driver and cryptography and better understand code from the more complex examples as we integrated it.  When it came to the encryption and decryption part, we used the basics from other classes that we had taken before to guide our application of examples. We did not want to go to far into depth in that part and implement it more complex than necessary.   
+\subsection{How did you ensure your solution was correct? Testing details, for instance.}
+We used print statements for testing and correctness.  This allowed us to make sure we were getting what we wanted from the encryption and decryption part. This was properly the most important testing because we had to come up with most of it ourselves from what we had learned from other classes. The plan is to encrypt and decrypt simple text and look for the ASCII of the text in both ciphertext and decrypted plaintext. Then we will encrypt and change keys for the decryption, and unless we are extraordinarily unlucky, our short segment of ASCII values won't appear again.
+\subsection{What did you learn?}
+We learned how to deal with bad examples and integrate them into better examples so that our system will work properly.  We also learned to use better work as a team when our back was against the wall. For example when it came down to the encryption part, Terrance thought he had it down pretty well, which he did. When Markus suggested something about it he realized that he was missing something about it and that help energize our team to finish this project and get it done right with the amount of time we had left. It was a good refresher on AES encryption and introduction to researching poorly documented and outdated code. Lastly, installing and configuring the block driver encryption was a challenge, especially with a key as a parameter to the module. 
+
+
+
+
+
+\end{document}
