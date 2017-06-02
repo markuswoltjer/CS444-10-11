@@ -96,7 +96,7 @@ void customer(){
     if(numCustomers >= MAX_SEATS){
         numCustomers--;
         pthread_mutex_unlock(&shop_mutex);
-        printf("What all the seats are full.  This is %&*^$&!!!!! Customer leaves angrly and tells social media how slow the barber shop is. \n");
+        printf("Customer: \"What!? All the seats are full!!  This is &*^$&!!!!! Customer leaves angrly and tells social media how slow the barber shop is.\" \n");
         //return;
         pthread_exit(0);
     }

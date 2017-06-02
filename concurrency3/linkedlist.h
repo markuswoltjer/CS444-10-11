@@ -9,8 +9,8 @@ typedef struct node {
 	struct node * next;
 } node_t;
 
-void free_list(node_t ** head);
-void print_list(node_t * head);
+void free_queue(node_t ** head);
+void print_queue(node_t * head);
 
 node_t * create_node(int val);
 node_t * insert_node(node_t * head, int val);
