@@ -643,3 +643,13 @@ void __init kmem_cache_init_late(void)
 {
 	slab_state = FULL;
 }
+
+//system call linkages
+asmlinkage long slob_used(){
+	return reserved;
+
+}
+
+asmlinkage long slob_free(){
+	return reserved - used;
+}
