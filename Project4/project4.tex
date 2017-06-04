@@ -57,11 +57,11 @@
 \begin{document}
 
 \begin{titlepage}
-	\title{Project 3}
+	\title{Project 4}
 	\author{CS444 - Spring 2017 \\ Terrance Lee, Raja Petroff, Markus Woltjer}
 	\maketitle
 	\begin{abstract}
-		The following document contains information about Project 3 which includes the design plan of the Kernel Crypto API version control, work done.  
+		The following document contains information about Project 4 which includes the design plan of the Kernel Slob Slab version control, work done.  
 	\end{abstract}
 	
 	\thispagestyle{empty} % gets rid of the "0" page number.
@@ -78,25 +78,26 @@
 \begin{center}
 	\begin{tabular}{| p{0.3\linewidth} | p{0.3\linewidth} | p{0.3\linewidth} |}
 		\hline User & Commit Message & Date\\
-		\hline terrancelee81 & Added Makefile & May 16th\\
-		\hline terrancelee81 & added latex docs& May 16th\\
-		\hline petroffr & added sbd.c & May 17th \\ 	
-		\hline terrancelee81 & updated latex docx & May 18th\\
-		\hline terrancelee81 & added Crypto.c & May 21st\\
-		\hline terrancelee81 & updated latex docx & May 22nd\\
-		\hline markuswoltjer & updated latex document & May 22nd\\
+		\hline terrancelee81 & Added Makefile & May 31st\\
+		\hline terrancelee81 & added project4.tex& May 31st\\
+		\hline petroffr & pushed initial slob.c & June 1st \\ 	
+		\hline terrancelee81 & added concurrency file & June 1st\\
+		\hline petroffr & did part1 of concurrency & June 1st\\
+		\hline markuswoltjer & added asmlinkage for slob_used and slob_free system calls & June 2nd\\
+		\hline markuswoltjer & successful test of concurrency.c & June 2nd\\
+		\hline terrancelee81 & updated latex docx & June 4th\\
 	\end{tabular}
 \end{center}
 \section{Work Log}
 \begin{itemize}
-	\item May 16th - began working on the kernel part of the assignment
-	\item May 16th - Makefile got updated
-	\item May 17th - SBD file got updated
-	\item May 18th - updated latex docs
-	\item May 21st - Parts of Crypto
-	\item May 22nd - Integrated Crypto
-	\item May 22nd - Tested Integration
-	\item May 22nd - Finalized Report
+	\item May 30th - began working on the kernel and concurrency part of the assignment
+	\item May 31st - Makefile and latex got added
+	\item June 1st - Slob file got added
+	\item June 1st - Part 1 and 2 Concurrency file got added
+	\item June 2nd - Slob file got updated
+	\item June 2nd - Concurrency got tested
+	\item June 4th - latex got updated
+	\item June 5th - Finalized Report
 	
 	
 	
@@ -105,13 +106,13 @@
 \end{itemize}
 \section{}
 \subsection{What do you think the main point of this assignment is?}
-To make a simple block device from incomplete pieces and lacking documentation, and encrypt it.  
+ I believe the main point of this assignment is to understand how the SLOB first-fit alogorithm works and implement the best-fit allocation algorithm.  Also it does not say it in the assignment but also get the concurrency four assignment working as well.  
 \subsection{How did you personally approach the problem? Design decisions, algorithm, etc.}
-The approach was to find the best sbd.c file we could online and bulid on it and build encryption into it based on block driver examples, encryption examples, and researching the encryption libraries. Although we did use some more complex example, we tried to start with the simple ones to build the conceptual understanding of the block driver and cryptography and better understand code from the more complex examples as we integrated it.  When it came to the encryption and decryption part, we used the basics from other classes that we had taken before to guide our application of examples. We did not want to go to far into depth in that part and implement it more complex than necessary.   
+
 \subsection{How did you ensure your solution was correct? Testing details, for instance.}
-We used print statements for testing and correctness.  This allowed us to make sure we were getting what we wanted from the encryption and decryption part. This was properly the most important testing because we had to come up with most of it ourselves from what we had learned from other classes. The plan is to encrypt and decrypt simple text and look for the ASCII of the text in both ciphertext and decrypted plaintext. Then we will encrypt and change keys for the decryption, and unless we are extraordinarily unlucky, our short segment of ASCII values won't appear again.
+
 \subsection{What did you learn?}
-We learned how to deal with bad examples and integrate them into better examples so that our system will work properly.  We also learned to use better work as a team when our back was against the wall. For example when it came down to the encryption part, Terrance thought he had it down pretty well, which he did. When Markus suggested something about it he realized that he was missing something about it and that help energize our team to finish this project and get it done right with the amount of time we had left. It was a good refresher on AES encryption and introduction to researching poorly documented and outdated code. Lastly, installing and configuring the block driver encryption was a challenge, especially with a key as a parameter to the module. 
+
 
 
 
