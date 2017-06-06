@@ -33,7 +33,7 @@ void *bread_baker(void *UNUSED(_)) {
 		sem_wait(&bread_semaphore);
 		printf("Baker is eating.\n");
 		eat_sandwich();
-		printf("Baker is done eating.\n");
+		printf("Baker is done eating.\n\n");
 		sem_post(&agent_semaphore);
 	}
 }
@@ -44,7 +44,7 @@ void *BBQSauce_mixer(void *UNUSED(_)) {
 		sem_wait(&BBQSauce_semaphore);
 		printf("BBQSauce mixer is eating.\n");
 		eat_sandwich();
-		printf("BBQSauce is done eating.\n");
+		printf("BBQSauce is done eating.\n\n");
 		sem_post(&agent_semaphore);
 	}
 }
@@ -55,7 +55,7 @@ void *tofu_coagulator(void *UNUSED(_)) {
 		sem_wait(&tofu_semaphore);
 		printf("Tofu coagulator is eating.\n");
 		eat_sandwich();
-		printf("Tofu coagulator is done eating.\n");
+		printf("Tofu coagulator is done eating.\n\n");
 		sem_post(&agent_semaphore);
 	}
 }
@@ -154,6 +154,8 @@ void *agent_main(void *UNUSED(_)) {
 
 int main() {
 	srand(time(NULL));//seed random number generator
+
+	printf("This concurrency demonstration applies the same concurrency concepts as \"The Smokers Problem\", but uses a medium of sandwich-making instead of cigarette-making to encourage healthy habits.\n\n");
 
 	pthread_t agent_thr, tofuman_nudges_thr, baker_nudges_thr, saucer_nudges_thr, baker_thr, mixer_thr, coagulator_thr;
 
