@@ -61,7 +61,7 @@
 	\author{CS444 - Spring 2017 \\ Terrance Lee, Raja Petroff, Markus Woltjer}
 	\maketitle
 	\begin{abstract}
-		The following document contains information about Project 4 which includes the design plan of the Kernel Slob Slab version control, work done.  
+		The following document contains information about Project 4 which includes the design plan of the Kernel Slob Slab, version control, and work process.  
 	\end{abstract}
 	
 	\thispagestyle{empty} % gets rid of the "0" page number.
@@ -106,13 +106,13 @@
 \end{itemize}
 \section{}
 \subsection{What do you think the main point of this assignment is?}
- I believe the main point of this assignment is to understand how the SLOB first-fit alogorithm works and implement the best-fit allocation algorithm.  Also it does not say it in the assignment but also get the concurrency four assignment working as well.  
+ I believe the main point of this assignment is to understand how the SLOB first-fit alogorithm works, understand how it differs from the best-fit algorithm, and adjust the file to implement the best-fit allocation algorithm. While not specifically addressed under Project Four, concurrency assignments four and five were also completed simultaneously.
 \subsection{How did you personally approach the problem? Design decisions, algorithm, etc.}
-
+Almost all of the work to be done was, as one might expect, in the allocation and deallocation functions. A few other functions were added to support these changes. First we looked into what exactly was meant by the best-fit algorithm with respect to fragmentation, since it originally refers to curve-fitting, which is a very general method in multiple disciplines. Per the usual method, we went through the original slob.c file commenting more in depth where we saw the logical applications of each step of the first-fit application, and making note of what would need to replace that step. Then, we carefully coded all replacements, since debugging isn't as easy as usual. Upon failed boot, we looked back at the file and considered which of the changes could have contributed to a fatal flaw. Our first correct boot reduced fragmentation as expected.
 \subsection{How did you ensure your solution was correct? Testing details, for instance.}
-We implemented some sys calls that returned the amount of memory used and the amount of free memory. We used this to calculate the percentage of fragmentation.
+We implemented some new system calls that returned the amount of memory used and the amount of free memory. We used this to calculate the percentage of fragmentation in a small test file that we run on the VM after kernel boot.
 \subsection{What did you learn?}
-We learned how to implement the best-fit memory allocation algorithm and Linux system calls.
+We learned how to implement the best-fit memory allocation algorithm and Linux system calls. We also learned about the data structures and fundamental functions underlying memory management in the Linux kernel.
 
 
 
